@@ -5,15 +5,18 @@
  */
 
 // Database Configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'imaginitiate_casino');
+// Support for Railway and other cloud platforms
+define('DB_HOST', getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '');
+define('DB_NAME', getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'imaginitiate_casino');
+define('DB_PORT', getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: 3306);
 
 // Application Settings
 define('SITE_NAME', 'IMAGINITIATE');
-define('SITE_URL', 'http://localhost/imaginitiate-casino/public/');
-define('SITE_DOMAIN', 'imaginitiate.com');
+define('SITE_URL', getenv('RAILWAY_PUBLIC_DOMAIN') ? 'https://' . getenv('RAILWAY_PUBLIC_DOMAIN') . '/' : 'http://localhost/imaginitiate-casino/public/');
+define('SITE_DOMAIN', getenv('RAILWAY_PUBLIC_DOMAIN') ?: 'imaginitiate.com');
+define('APP_ENV', getenv('APP_ENV') ?: 'development');
 
 // Company Information
 define('COMPANY_NAME', 'IMAGINITIATE VENTURES PRIVATE LIMITED');
@@ -42,8 +45,8 @@ define('SESSION_TIMEOUT', 3600); // 1 hour
 define('COOKIE_LIFETIME', 2592000); // 30 days
 
 // Security Settings
-define('ENABLE_HTTPS', false); // Set to true in production
-define('DEBUG_MODE', true); // Set to false in production
+define('ENABLE_HTTPS', getenv('APP_ENV') === 'production' ? true : false);
+define('DEBUG_MODE', getenv('APP_ENV') === 'production' ? false : true)
 
 // Compliance Settings
 define('MIN_AGE', 18);

@@ -1,0 +1,46 @@
+# PHP
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Composer
+vendor/
+composer.lock
+
+# Node (if used)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Backups
+*.bak
+*.backup
+*.tmp
+
+# Database backups
+*.sql
+*.sql.gz
+
+# Cache
+.cache/
+*.cache

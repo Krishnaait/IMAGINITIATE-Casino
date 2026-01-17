@@ -46,7 +46,7 @@ define('COOKIE_LIFETIME', 2592000); // 30 days
 
 // Security Settings
 define('ENABLE_HTTPS', getenv('APP_ENV') === 'production' ? true : false);
-define('DEBUG_MODE', getenv('APP_ENV') === 'production' ? false : true)
+define('DEBUG_MODE', getenv('APP_ENV') === 'production' ? false : true);
 
 // Compliance Settings
 define('MIN_AGE', 18);
